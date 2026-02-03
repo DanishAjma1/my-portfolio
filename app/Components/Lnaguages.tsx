@@ -16,23 +16,46 @@ import {
   Table,
   FileJson,
   Wind,
-  Coffee
+  Coffee,
+  Terminal 
 } from 'lucide-react';
 
-const skills = [
-  { name: "React", icon: <LayoutDashboard />, x: 15, y: 25, level: 95, color: "#61DAFB" },
-  { name: "Next.js", icon: <Globe2 />, x: 12, y: 55, level: 92, color: "#ffffff" },
-  { name: "Node.js", icon: <Server />, x: 80, y: 20, level: 90, color: "#339933" },
-  { name: "Express", icon: <FileJson />, x: 72, y: 42, level: 88, color: "#eeeeee" },
-  { name: "MongoDB", icon: <Database />, x: 85, y: 70, level: 85, color: "#47A248" },
-  { name: "MySQL", icon: <Table />, x: 62, y: 88, level: 82, color: "#00758F" },
-  { name: "PHP", icon: <Coffee />, x: 40, y: 90, level: 75, color: "#777BB4" },
-  { name: "Three.js", icon: <Box />, x: 50, y: 10, level: 78, color: "#fcca03" },
-  { name: "Stripe", icon: <CreditCard />, x: 90, y: 45, level: 88, color: "#635bff" },
-  { name: "Tailwind", icon: <Wind />, x: 30, y: 80, level: 98, color: "#06B6D4" },
-  { name: "DevOps", icon: <Infinity />, x: 30, y: 12, level: 82, color: "#2563EB" },
-  { name: "Git", icon: <GitBranch />, x: 10, y: 85, level: 90, color: "#F05032" },
+// Define the shape for TypeScript to prevent 'x' and 'y' errors
+interface Skill {
+  name: string;
+  icon: React.ReactNode;
+  level: number;
+  color: string;
+  x?: number;
+  y?: number;
+}
+
+const skillsRaw: Skill[] = [
+  { name: "React", icon: <LayoutDashboard />, level: 95, color: "#61DAFB" },
+  { name: "Next.js", icon: <Globe2 />, level: 92, color: "#ffffff" },
+  { name: "Node.js", icon: <Server />, level: 93, color: "#339933" },
+  { name: "JavaScript", icon: <Terminal />, level: 96, color: "#F7DF1E" },
+  { name: "Express", icon: <FileJson />, level: 80, color: "#eeeeee" },
+  { name: "MongoDB", icon: <Database />, level: 85, color: "#47A248" },
+  { name: "MySQL", icon: <Table />, level: 82, color: "#00758F" },
+  { name: "PHP", icon: <Coffee />, level: 75, color: "#777BB4" },
+  { name: "Three.js", icon: <Box />, level: 78, color: "#fcca03" },
+  { name: "Stripe", icon: <CreditCard />, level: 88, color: "#635bff" },
+  { name: "Tailwind", icon: <Wind />, level: 98, color: "#06B6D4" },
+  { name: "DevOps", icon: <Infinity />, level: 82, color: "#2563EB" },
+  { name: "Git", icon: <GitBranch />, level: 90, color: "#F05032" },
 ];
+
+const skills = skillsRaw.map((skill, i, arr) => {
+  const angle = (i / arr.length) * 2 * Math.PI;
+  const radiusX = 40; 
+  const radiusY = 40; 
+  return {
+    ...skill,
+    x: 50 + radiusX * Math.cos(angle),
+    y: 50 + radiusY * Math.sin(angle)
+  };
+});
 
 export default function TechNeuralNetwork() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -40,7 +63,6 @@ export default function TechNeuralNetwork() {
   return (
     <section className="relative min-h-screen bg-[#020617] flex flex-col items-center justify-center overflow-hidden py-20 px-4">
       
-      {/* NEW HEADER SECTION */}
       <div className="relative z-20 text-center mb-10">
         <motion.h1 
           initial={{ opacity: 0, y: -20 }}
@@ -96,23 +118,6 @@ export default function TechNeuralNetwork() {
                 }}
                 transition={{ duration: 0.3 }}
               />
-              
-              <motion.circle
-                r="2"
-                fill={skill.color}
-                filter="url(#glow-effect)"
-                initial={{ offsetDistance: "0%" }}
-                animate={{ offsetDistance: "100%" }}
-                transition={{ 
-                  duration: 2 + Math.random() * 2, 
-                  repeat: Infinity, 
-                  ease: "linear",
-                  delay: i * 0.2 
-                }}
-                style={{
-                  offsetPath: `path('M ${typeof window !== 'undefined' ? window.innerWidth * 0.5 : 500} ${typeof window !== 'undefined' ? 300 : 300} L ${skill.x * 10} ${skill.y * 6}')`,
-                }}
-              />
             </React.Fragment>
           ))}
         </svg>
@@ -138,7 +143,9 @@ export default function TechNeuralNetwork() {
                     transition={{ duration: 0.2 }}
                     style={{ color: skills[hoveredIndex].color }}
                   >
-                    {React.cloneElement(skills[hoveredIndex].icon as React.ReactElement, { size: 40 })}
+                    {/* FIXED: Type casting for cloneElement */}
+                    {React.isValidElement(skills[hoveredIndex].icon) && 
+                      React.cloneElement(skills[hoveredIndex].icon as React.ReactElement<{ size?: number }>, { size: 40 })}
                   </motion.div>
                 ) : (
                   <motion.div
@@ -160,7 +167,7 @@ export default function TechNeuralNetwork() {
         {/* 4. SKILL NODES */}
         {skills.map((skill, i) => (
           <motion.div
-            key={i}
+            key={`node-${i}`}
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -174,8 +181,8 @@ export default function TechNeuralNetwork() {
               className="relative group"
             >
               <motion.div
-                whileHover={{ scale: 1.3 }}
-                className={`p-3 md:p-4 rounded-2xl bg-slate-900/80 border transition-all duration-300 backdrop-blur-sm ${
+                whileHover={{ scale: 1.2 }}
+                className={`w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-2xl bg-slate-900/80 border transition-all duration-300 backdrop-blur-sm ${
                   hoveredIndex === i ? 'border-white shadow-xl' : 'border-blue-500/20'
                 }`}
                 style={{ 
@@ -187,11 +194,12 @@ export default function TechNeuralNetwork() {
                   className="transition-colors duration-300" 
                   style={{ color: hoveredIndex === i ? skill.color : '#475569' }}
                 >
-                  {React.cloneElement(skill.icon as React.ReactElement, { size: 24 })}
+                  {/* FIXED: Type casting for cloneElement */}
+                  {React.isValidElement(skill.icon) && 
+                    React.cloneElement(skill.icon as React.ReactElement<{ size?: number }>, { size: 28 })}
                 </div>
               </motion.div>
 
-              {/* Mastery Tooltip - MODIFIED: NAMES ONLY */}
               <AnimatePresence>
                 {hoveredIndex === i && (
                   <motion.div
