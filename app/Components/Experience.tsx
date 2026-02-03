@@ -12,28 +12,28 @@ const data = [
   {
     role: "Full Stack Developer Internship",
     company: "Techoo Software House",
-    time: "2024-2024",
+    time: "2024 - 2024", // Added spaces for better readability
     desc: "Developed immersive UI systems with complex animations, focusing on performance optimization and responsive design systems.",
     skills: ["React"],
   },
   {
     role: "MERN Stack Developer",
     company: "AbccdMedia",
-    time: "2025-2026",
+    time: "2025 - 2026",
     desc: "Engineered scalable full-stack systems, interactive dashboards, and high-performance API architectures using modern tech stacks.",
-    skills: ["React", "Node.js", "MongoDB", "Tailwind CSS","Farmer Motion","Nextjs"],
+    skills: ["React", "Node.js", "MongoDB", "Tailwind CSS", "Framer Motion", "Next.js"],
   },
   {
     role: "Full Stack Developer",
     company: "Techoo Software House",
-    time: "2025-Present",
+    time: "2025 - Present",
     desc: "Maintained legacy PHP systems while migrating core services to modern Node/Express environments for better concurrency.",
-    skills: ["Mern","Three.js","Stripe","Tailwind Css"],
+    skills: ["Mern", "Three.js", "Stripe", "Tailwind Css"],
   },
 ];
 
 /* ======================================================
-   FLOATING BLUE PHOTONS (Neural Network Vibe)
+   FLOATING BLUE PHOTONS
 ====================================================== */
 
 function Particles() {
@@ -79,7 +79,6 @@ function Card({ item, index }: any) {
         isLeft ? "md:pr-16 md:ml-0 md:mr-auto" : "md:pl-16 md:mr-0 md:ml-auto"
       }`}
     >
-      {/* The Connecting Node */}
       <motion.div
         animate={{ 
           boxShadow: ["0 0 10px #3b82f6", "0 0 25px #3b82f6", "0 0 10px #3b82f6"] 
@@ -92,15 +91,15 @@ function Card({ item, index }: any) {
         whileHover={{ y: -5, scale: 1.02 }}
         className="relative backdrop-blur-3xl bg-slate-900/40 border border-blue-500/20 rounded-[2rem] p-8 shadow-2xl hover:border-blue-500/50 transition-all duration-500 group overflow-hidden"
       >
-        {/* Subtle Inner Glow */}
         <div className="absolute -right-10 -top-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl group-hover:bg-blue-600/20 transition-all" />
 
-        <div className="flex justify-between items-start mb-4">
-            <div>
+        <div className="flex justify-between items-start gap-4 mb-4">
+            <div className="flex-1">
                 <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">{item.role}</h3>
                 <p className="text-blue-500 font-mono text-sm font-semibold">{item.company}</p>
             </div>
-            <span className="text-[10px] font-bold py-1 px-3 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">
+            {/* FIX: added whitespace-nowrap and shrink-0 to prevent text wrapping */}
+            <span className="whitespace-nowrap shrink-0 text-[10px] font-bold py-1 px-3 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">
                 {item.time}
             </span>
         </div>
@@ -109,7 +108,6 @@ function Card({ item, index }: any) {
           {item.desc}
         </p>
 
-        {/* Skill Tags */}
         <div className="flex gap-2 flex-wrap">
           {item.skills.map((s: string) => (
             <span
@@ -132,8 +130,6 @@ function Card({ item, index }: any) {
 export default function Experience() {
   return (
     <section className="relative min-h-screen bg-[#020617] text-white py-32 overflow-hidden">
-      
-      {/* Background Decor */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(30,58,138,0.1),transparent_70%)]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
         <h2 className="text-white/[0.02] text-[18vw] font-black uppercase leading-none">
@@ -144,8 +140,6 @@ export default function Experience() {
       <Particles />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-
-        {/* New Top Heading */}
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -158,7 +152,6 @@ export default function Experience() {
           <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-blue-500 to-transparent mb-12" />
         </motion.div>
 
-        {/* Career Path Heading */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -172,10 +165,8 @@ export default function Experience() {
           </h2>
         </motion.div>
 
-        {/* Central Vertical Beam */}
         <div className="hidden md:block absolute left-1/2 top-[350px] bottom-0 w-[1px] bg-gradient-to-b from-blue-500 via-blue-900/50 to-transparent shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
 
-        {/* Content Cards */}
         <div className="flex flex-col gap-20 relative">
           {data.map((item, i) => (
             <Card key={i} item={item} index={i} />

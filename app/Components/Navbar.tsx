@@ -34,13 +34,12 @@ const Navbar = () => {
     { name: "Experience", href: "#experience" },
   ];
 
-  // Phone number from CV 
   const phoneNumber = "+923147865460";
 
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
-        scrolled || isOpen ? "py-3 bg-[#020617]/90 backdrop-blur-xl border-b border-blue-500/10" : "py-5 bg-transparent"
+        scrolled || isOpen ? "py-3 bg-[#020617]/95 backdrop-blur-xl border-b border-blue-500/10" : "py-5 bg-transparent"
       }`}
     >
       <motion.div className="absolute top-0 left-0 right-0 h-[2px] bg-blue-500 origin-left z-50" style={{ scaleX }} />
@@ -51,7 +50,7 @@ const Navbar = () => {
         <a href="#home" onClick={scrollToTop} className="flex items-center gap-3 group cursor-pointer relative z-[110]">
           <div className="relative">
             <div className="absolute -inset-1 bg-blue-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000" />
-            <div className="relative flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-slate-950 border border-blue-500/50 text-blue-500 font-black text-sm sm:text-base transition-transform group-hover:scale-105">
+            <div className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-slate-950 border border-blue-500/50 text-blue-500 font-black text-sm transition-transform group-hover:scale-105">
               UN
             </div>
           </div>
@@ -71,8 +70,8 @@ const Navbar = () => {
         </div>
 
         {/* RIGHT ACTIONS */}
-        <div className="flex items-center gap-2 sm:gap-4 relative z-[110]">
-          {/* Desktop Socials & Call Link */}
+        <div className="flex items-center gap-4 relative z-[110]">
+          {/* Desktop Only Actions */}
           <div className="hidden md:flex items-center gap-4 border-r border-white/10 pr-4">
             <a 
               href={`tel:${phoneNumber}`} 
@@ -89,19 +88,12 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Mobile "Call Me" Button (Hidden on Desktop) */}
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href={`tel:${phoneNumber}`}
-            className="flex md:hidden items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-[10px] font-black uppercase text-white shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+          {/* MOBILE MENU TOGGLE - Now the only item on the right for mobile */}
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="flex md:hidden h-10 w-10 items-center justify-center rounded-xl bg-slate-900 border border-blue-500/20 text-white shadow-lg active:scale-95 transition-transform"
           >
-            Call Me
-          </motion.a>
-
-          {/* MOBILE MENU TOGGLE */}
-          <button onClick={() => setIsOpen(!isOpen)} className="flex md:hidden h-9 w-9 items-center justify-center rounded-lg bg-slate-900 border border-white/10 text-white">
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
@@ -109,20 +101,48 @@ const Navbar = () => {
       {/* MOBILE OVERLAY MENU */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div initial={{ opacity: 0, x: "100%" }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: "100%" }} className="fixed inset-0 z-[100] h-screen w-full bg-[#020617] p-8 md:hidden flex flex-col justify-center items-center">
-            <div className="flex flex-col items-center gap-8">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            exit={{ opacity: 0, y: -20 }} 
+            className="fixed inset-0 z-[100] h-screen w-full bg-[#020617] p-8 md:hidden flex flex-col justify-center items-center"
+          >
+            <div className="flex flex-col items-center gap-6 w-full max-w-xs">
               {navLinks.map((link, i) => (
-                <a key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="text-3xl font-black uppercase tracking-tighter text-white hover:text-blue-500 transition-colors">{link.name}</a>
+                <motion.a 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  key={link.name} 
+                  href={link.href} 
+                  onClick={() => setIsOpen(false)} 
+                  className="text-2xl font-black uppercase tracking-tighter text-white hover:text-blue-500 transition-colors"
+                >
+                  {link.name}
+                </motion.a>
               ))}
               
-              <a href={`tel:${phoneNumber}`} className="flex items-center gap-3 text-2xl font-black uppercase tracking-tighter text-blue-400 mt-4">
-                <Phone size={24} />
-                Call Me
-              </a>
+              <div className="h-px w-full bg-white/5 my-4" />
 
-              <div className="flex gap-8 mt-4">
-                <Linkedin size={28} className="text-blue-500" />
-                <Instagram size={28} className="text-pink-500" />
+              {/* CALL ME - Now visible here on mobile */}
+              <motion.a 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 }}
+                href={`tel:${phoneNumber}`} 
+                className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl bg-blue-600 text-white font-black uppercase tracking-widest text-sm shadow-[0_10px_30px_rgba(37,99,235,0.3)]"
+              >
+                <Phone size={18} />
+                Call Me Now
+              </motion.a>
+
+              <div className="flex gap-6 mt-6">
+                <a href="http://linkedin.com/in/umar-nadeem-118181398" target="_blank" className="p-3 rounded-full bg-slate-900 border border-white/5 text-blue-500">
+                  <Linkedin size={24} />
+                </a>
+                <a href="https://www.instagram.com/umar_n24?igsh=cWdicHV6ZmUxeDNi&utm_source=qr" target="_blank" className="p-3 rounded-full bg-slate-900 border border-white/5 text-pink-500">
+                  <Instagram size={24} />
+                </a>
               </div>
             </div>
           </motion.div>

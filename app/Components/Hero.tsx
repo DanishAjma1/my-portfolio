@@ -136,32 +136,41 @@ export default function Hero() {
               <img
                 src="/me.jpeg"
                 alt="Profile"
-                className="w-full h-[400px] md:h-[500px] object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-full h-[350px] sm:h-[400px] md:h-[500px] object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent" />
             </div>
 
-            {/* Floating badges - hidden on mobile for cleaner UI, visible on md+ */}
-            <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute -top-4 -left-4 md:-left-10 hidden sm:block">
-              <FloatingBadge icon={<Atom size={20} />} title="React" sub="Frontend" color="text-blue-400" />
+            {/* FIXED: Removed 'hidden sm:block'. Now visible on all screens with responsive positioning */}
+            <motion.div 
+                animate={{ y: [0, -10, 0] }} 
+                transition={{ duration: 4, repeat: Infinity }} 
+                className="absolute -top-1 -left-2 md:-left-10 z-20"
+            >
+              <FloatingBadge icon={<Atom size={16} className="md:w-5 md:h-5" />} title="React" sub="Frontend" color="text-blue-400" />
             </motion.div>
 
-            <motion.div animate={{ y: [0, 15, 0] }} transition={{ duration: 5, repeat: Infinity }} className="absolute top-1/2 -right-4 hidden sm:block">
-              <FloatingBadge icon={<Server size={20} />} title="Node.js" sub="Backend" color="text-blue-500" />
+            <motion.div 
+                animate={{ y: [0, 10, 0] }} 
+                transition={{ duration: 5, repeat: Infinity, delay: 0.5 }} 
+                className="absolute top-1/3 -right-2 md:-right-4 z-20"
+            >
+              <FloatingBadge icon={<Server size={16} className="md:w-5 md:h-5" />} title="Node.js" sub="Backend" color="text-blue-500" />
             </motion.div>
 
-            <div className="absolute bottom-10 -left-6 md:-left-10 bg-slate-950 border border-blue-500/20 p-3 md:p-4 rounded-xl md:rounded-2xl shadow-2xl">
-              <Database className="text-blue-500" size={20} />
+            
+            <div className="absolute bottom-16 -left-4 md:-left-10 bg-slate-950 border border-blue-500/20 p-2 md:p-4 rounded-xl shadow-2xl">
+              <Database className="text-blue-500" size={18} />
             </div>
           </div>
 
           {/* Name Tag */}
-          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[240px] md:w-full md:max-w-[300px]">
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[220px] md:w-full md:max-w-[300px]">
             <div className="bg-slate-900/90 border border-blue-500/20 backdrop-blur-2xl rounded-xl md:rounded-2xl p-3 md:p-4 flex items-center gap-3 md:gap-4 shadow-2xl">
-              <div className="h-8 w-8 md:h-10 md:w-10 rounded-lg md:xl bg-blue-600 flex items-center justify-center font-black text-xs md:text-base">UN</div>
+              <div className="h-8 w-8 md:h-10 md:w-10 rounded-lg bg-blue-600 flex items-center justify-center font-black text-xs md:text-base">UN</div>
               <div>
                 <h4 className="font-bold text-[10px] md:text-xs tracking-tight">Umar Nadeem</h4>
-                <p className="text-[8px] md:text-[10px] text-blue-500 font-mono font-bold uppercase tracking-tighter">Verified Engineer</p>
+                <p className="text-[8px] md:text-[10px] text-blue-500 font-mono font-bold uppercase tracking-tighter">Mern Specialist</p>
               </div>
               <MousePointer2 className="ml-auto text-blue-500 animate-bounce" size={14} />
             </div>
@@ -206,11 +215,11 @@ export default function Hero() {
 
 function FloatingBadge({ icon, title, sub, color }: { icon: any, title: string, sub: string, color: string }) {
   return (
-    <div className="flex items-center gap-2 md:gap-3 rounded-xl md:rounded-2xl border border-blue-500/10 bg-slate-900/80 backdrop-blur-xl px-3 py-2 md:px-5 md:py-3 shadow-2xl">
+    <div className="flex items-center gap-2 md:gap-3 rounded-lg md:rounded-2xl border border-blue-500/10 bg-slate-900/80 backdrop-blur-xl px-2 py-1.5 md:px-5 md:py-3 shadow-2xl">
       <div className={color}>{icon}</div>
       <div>
-        <p className="text-[9px] md:text-xs font-black uppercase tracking-widest leading-none">{title}</p>
-        <p className="text-[8px] md:text-[10px] text-slate-500 font-mono mt-1">{sub}</p>
+        <p className="text-[7px] md:text-xs font-black uppercase tracking-widest leading-none">{title}</p>
+        <p className="text-[6px] md:text-[10px] text-slate-500 font-mono mt-0.5 md:mt-1">{sub}</p>
       </div>
     </div>
   );

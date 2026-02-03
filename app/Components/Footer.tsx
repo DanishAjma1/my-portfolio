@@ -89,10 +89,9 @@ export default function Footer() {
             <h4 className="text-blue-500 text-[10px] font-black uppercase tracking-[0.2em] mb-6">Connect</h4>
             <div className="flex gap-4">
               {[
-                { icon: <Linkedin size={18} />, href: "https://linkedin.com" },
-                { icon: <Github size={18} />, href: "https://github.com" },
-                { icon: <Twitter size={18} />, href: "#" },
-                { icon: <Instagram size={18} />, href: "#" }
+                { icon: <Linkedin size={18} />, href: "http://linkedin.com/in/umar-nadeem-118181398" },
+                { icon: <Github size={18} />, href: "https://github.com/umar24012003" },
+                { icon: <Instagram size={18} />, href: "https://www.instagram.com/umar_n24?igsh=cWdicHV6ZmUxeDNi&utm_source=qr" }
               ].map((social, i) => (
                 <a 
                   key={i} 
