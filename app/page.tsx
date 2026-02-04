@@ -7,6 +7,8 @@ import LanguagesSection from './Components/Lnaguages'
 import RecentProjects from './Components/RecentWorks'
 import ContactSection from './Components/Contactus'
 import Footer from './Components/Footer'
+import PortfolioManifesto from './Components/About'
+import Manifesto from './Components/PortfolioMenifesto'
 
 export default function page() {
   return (
@@ -18,10 +20,15 @@ export default function page() {
         <Hero />
       </div>
 
+      <div>
+       <Manifesto/>
+      </div>
+
       {/* About Section */}
       <div id="about">
         <AboutMe />
       </div>
+
 
       {/* Experience Section */}
       <div id="experience">
