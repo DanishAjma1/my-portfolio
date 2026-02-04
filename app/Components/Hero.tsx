@@ -131,6 +131,29 @@ export default function Hero() {
           className="order-1 lg:order-2 relative px-4 sm:px-10 lg:px-0"
         >
           <div className="relative max-w-[450px] mx-auto transform rotate-2 hover:rotate-0 transition-transform duration-700">
+            
+            {/* NEW: PROFESSIONAL TECH CIRCLES BEHIND PIC */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                {/* Rotating Dashed Circle 1 */}
+                <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="absolute w-[120%] h-[120%] border border-dashed border-blue-500/20 rounded-full"
+                />
+                {/* Rotating Dashed Circle 2 (Inverse) */}
+                <motion.div 
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                    className="absolute w-[105%] h-[105%] border border-dotted border-blue-600/10 rounded-full"
+                />
+                {/* Glow Pulse */}
+                <motion.div 
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                    className="absolute w-[80%] h-[80%] bg-blue-500/10 blur-[60px] rounded-full"
+                />
+            </div>
+
             <div className="absolute -inset-4 bg-blue-600/10 blur-3xl rounded-[3rem]" />
             <div className="relative rounded-[2rem] md:rounded-[2.5rem] overflow-hidden border border-blue-500/20 shadow-2xl bg-slate-900">
               <img
@@ -141,7 +164,6 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent" />
             </div>
 
-            {/* FIXED: Removed 'hidden sm:block'. Now visible on all screens with responsive positioning */}
             <motion.div 
                 animate={{ y: [0, -10, 0] }} 
                 transition={{ duration: 4, repeat: Infinity }} 
@@ -158,7 +180,6 @@ export default function Hero() {
               <FloatingBadge icon={<Server size={16} className="md:w-5 md:h-5" />} title="Node.js" sub="Backend" color="text-blue-500" />
             </motion.div>
 
-            
             <div className="absolute bottom-16 -left-4 md:-left-10 bg-slate-950 border border-blue-500/20 p-2 md:p-4 rounded-xl shadow-2xl">
               <Database className="text-blue-500" size={18} />
             </div>

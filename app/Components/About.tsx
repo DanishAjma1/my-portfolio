@@ -145,7 +145,7 @@ const AboutMe = () => {
                     </div>
                   </div>
                   
-                  <p className="text-4xl font-black text-white">12<span className="text-blue-500 text-xl">+</span></p>
+                  <p className="text-4xl font-black text-white">17<span className="text-blue-500 text-xl">+</span></p>
                   <p className="text-[9px] font-mono text-blue-300/40 uppercase">Verified Projects</p>
                </div>
             </div>
