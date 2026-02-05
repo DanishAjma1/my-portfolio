@@ -4,12 +4,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Briefcase, Sparkles, Zap } from "lucide-react";
 
-
 const data = [
   {
     role: "Full Stack Developer Internship",
     company: "Techoo Software House",
-    time: "2024 - 2024", 
+    time: "2024 - 2024",
     desc: "Developed immersive UI systems with complex animations, focusing on performance optimization and responsive design systems.",
     skills: ["React"],
   },
@@ -18,7 +17,14 @@ const data = [
     company: "AbccdMedia",
     time: "2025 - 2026",
     desc: "Engineered scalable full-stack systems, interactive dashboards, and high-performance API architectures using modern tech stacks.",
-    skills: ["React", "Node.js", "MongoDB", "Tailwind CSS", "Framer Motion", "Next.js"],
+    skills: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Next.js",
+    ],
   },
   {
     role: "Full Stack Developer",
@@ -28,7 +34,6 @@ const data = [
     skills: ["Mern", "Three.js", "Stripe", "Tailwind Css"],
   },
 ];
-
 
 function Particles() {
   return (
@@ -70,8 +75,12 @@ function Card({ item, index }: any) {
       }`}
     >
       <motion.div
-        animate={{ 
-          boxShadow: ["0 0 10px #3b82f6", "0 0 25px #3b82f6", "0 0 10px #3b82f6"] 
+        animate={{
+          boxShadow: [
+            "0 0 10px #3b82f6",
+            "0 0 25px #3b82f6",
+            "0 0 10px #3b82f6",
+          ],
         }}
         transition={{ repeat: Infinity, duration: 3 }}
         className="hidden md:block absolute top-10 w-4 h-4 rounded-full bg-blue-500 z-20 left-1/2 -translate-x-1/2 border-4 border-slate-950"
@@ -84,13 +93,17 @@ function Card({ item, index }: any) {
         <div className="absolute -right-10 -top-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl group-hover:bg-blue-600/20 transition-all" />
 
         <div className="flex justify-between items-start gap-4 mb-4">
-            <div className="flex-1">
-                <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">{item.role}</h3>
-                <p className="text-blue-500 font-mono text-sm font-semibold">{item.company}</p>
-            </div>
-            <span className="whitespace-nowrap shrink-0 text-[10px] font-bold py-1 px-3 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">
-                {item.time}
-            </span>
+          <div className="flex-1">
+            <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+              {item.role}
+            </h3>
+            <p className="text-blue-500 font-mono text-sm font-semibold">
+              {item.company}
+            </p>
+          </div>
+          <span className="whitespace-nowrap shrink-0 text-[10px] font-bold py-1 px-3 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">
+            {item.time}
+          </span>
         </div>
 
         <p className="text-slate-400 text-sm leading-relaxed mb-6">
@@ -112,10 +125,9 @@ function Card({ item, index }: any) {
   );
 }
 
-
 export default function Experience() {
   return (
-    <section className="relative min-h-screen bg-[#020617] text-white py-32 overflow-hidden">
+    <section className="relative min-h-screen bg-transparent text-white py-32 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(30,58,138,0.1),transparent_70%)]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
         <h2 className="text-white/[0.02] text-[18vw] font-black uppercase leading-none">
@@ -126,13 +138,13 @@ export default function Experience() {
       <Particles />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center mb-8"
         >
-           <h2 className="text-blue-500 font-mono text-sm font-black tracking-[0.5em] uppercase mb-2">
+          <h2 className="text-blue-500 font-mono text-sm font-black tracking-[0.5em] uppercase mb-2">
             Timeline
           </h2>
           <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-blue-500 to-transparent mb-12" />

@@ -3,7 +3,7 @@ import Navbar from './Components/Navbar'
 import Hero from './Components/Hero'
 import AboutMe from './Components/About'
 import Experience from './Components/Experience'
-import LanguagesSection from './Components/Lnaguages'
+import LanguagesSection from './Components/Languages'
 import RecentProjects from './Components/RecentWorks'
 import ContactSection from './Components/Contactus'
 import Footer from './Components/Footer'
@@ -11,15 +11,11 @@ import Manifesto from './Components/PortfolioMenifesto'
 
 export default function page() {
   return (
-    <div className="bg-[#020617]">
+    <div className="bg-[#000022]">
       <Navbar />
       
       <div id="home">
         <Hero />
-      </div>
-
-      <div>
-       <Manifesto/>
       </div>
 
       <div id="about">
