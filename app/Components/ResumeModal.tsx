@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Mail, MapPin, Phone, ExternalLink, GraduationCap, Briefcase, Code2, Download } from "lucide-react";
