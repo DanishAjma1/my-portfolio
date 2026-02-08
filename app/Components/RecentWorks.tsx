@@ -87,13 +87,16 @@ export default function RecentProjects() {
             className={`flex-shrink-0 ${isMobile ? "w-full mb-10" : "w-[400px]"} flex flex-col justify-center`}
           >
             <div className="flex items-center gap-4 mb-4 md:mb-6">
-              <div className="h-[2px] w-8 md:w-12 bg-blue-600" />
-              <span className="text-blue-500 font-mono tracking-widest text-xs md:text-sm uppercase">
+              <div className="h-[2px] w-8 md:w-12 bg-[#8847fd]" />
+              <span className="text-[#8847fd] font-mono tracking-widest text-xs md:text-sm uppercase">
                 Selected Works
               </span>
             </div>
             <h3 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 md:mb-8">
-              Crafting <span className="text-blue-600">Digital</span>{" "}
+              Crafting{" "}
+              <span className="bg-linear-to-r from-[#3c11a0] via-[#8847fd] to-white bg-clip-text text-transparent">
+                Digital
+              </span>{" "}
               Experiences
             </h3>
           </div>
@@ -102,13 +105,13 @@ export default function RecentProjects() {
             <motion.div
               key={project.id}
               whileHover={isMobile ? {} : { y: -20 }}
-              className={`flex-shrink-0 ${isMobile ? "w-full h-auto" : "w-[450px] h-[550px]"} bg-slate-900/40 border border-slate-800 rounded-2xl md:rounded-3xl p-6 md:p-10 flex flex-col justify-between group hover:border-blue-500/50 transition-colors duration-500 relative overflow-hidden backdrop-blur-xl`}
+              className={`flex-shrink-0 ${isMobile ? "w-full h-auto" : "w-[450px] h-[550px]"} bg-slate-900/40 border border-slate-800 rounded-2xl md:rounded-3xl p-6 md:p-10 flex flex-col justify-between group hover:border-[#8847fd]/50 transition-colors duration-500 relative overflow-hidden backdrop-blur-xl`}
             >
-              <div className="absolute -right-20 -top-20 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl group-hover:bg-blue-600/20 transition-all duration-700" />
+              <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#8847fd]/10 rounded-full blur-3xl group-hover:bg-[#8847fd]/20 transition-all duration-700" />
 
               <div>
                 <div className="flex justify-between items-start mb-8 md:mb-12">
-                  <span className="text-4xl md:text-6xl font-black text-white/5 group-hover:text-blue-500/20 transition-colors duration-500 font-mono">
+                  <span className="text-4xl md:text-6xl font-black text-white/5 group-hover:text-[#8847fd]/20 transition-colors duration-500 font-mono">
                     {project.id}
                   </span>
                   <div className="flex gap-2 md:gap-3 relative z-50">
@@ -119,7 +122,7 @@ export default function RecentProjects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 md:p-3 bg-slate-800 rounded-full text-white hover:bg-blue-600 transition-colors"
+                      className="p-2 md:p-3 bg-slate-800 rounded-full text-white hover:bg-[#8847fd] transition-colors"
                     >
                       <Github size={18} />
                     </a>
@@ -127,7 +130,7 @@ export default function RecentProjects() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 md:p-3 bg-blue-600 rounded-full text-white hover:bg-white hover:text-blue-600 transition-colors"
+                      className="p-2 md:p-3 bg-[#8847fd] rounded-full text-white hover:bg-white hover:text-[#8847fd] transition-colors"
                     >
                       <ExternalLink size={18} />
                     </a>
@@ -146,7 +149,7 @@ export default function RecentProjects() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2 md:px-3 py-1 bg-slate-950 border border-slate-800 text-blue-400 text-[10px] md:text-xs font-mono rounded-full"
+                      className="px-2 md:px-3 py-1 bg-slate-900/40 border border-[#8847fd]/20 text-[#8049e5] text-[10px] md:text-xs font-mono rounded-full"
                     >
                       {t}
                     </span>
@@ -154,12 +157,12 @@ export default function RecentProjects() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 md:pt-8 border-t border-slate-800 flex justify-between items-center group-hover:border-blue-500/30">
+              <div className="mt-8 pt-6 md:pt-8 border-t border-slate-800 flex justify-between items-center group-hover:border-[#8847fd]/30">
                 <div className="flex items-center gap-2 text-slate-500 text-[10px] md:text-xs uppercase font-bold tracking-widest">
                   <Layers size={14} />
                   <span>Architecture Verified</span>
                 </div>
-                <ArrowUpRight className="text-slate-700 group-hover:text-blue-500 transition-all" />
+                <ArrowUpRight className="text-slate-700 group-hover:text-[#8847fd] transition-all" />
               </div>
             </motion.div>
           ))}

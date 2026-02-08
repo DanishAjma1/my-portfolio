@@ -343,7 +343,7 @@ const AboutMe = () => {
               <p className="flex gap-4">
                 <span className="text-[#3c11a0] italic">02</span>
                 <span className="pl-6 text-blue-100/40 italic">
-                  // Building scalable, maintainable web systems
+                   Building scalable, maintainable web systems
                 </span>
               </p>
               <p className="flex gap-4">
@@ -351,7 +351,7 @@ const AboutMe = () => {
                 <span className="pl-6">
                   stack ={" "}
                   <span className="text-[#8847fd]">
-                    ["MERN", "Next.js", "Third Party APIs"]
+                    {`["MERN", "Next.js", "Third Party APIs"]`}
                   </span>
                   ;
                 </span>
@@ -360,21 +360,21 @@ const AboutMe = () => {
                 <span className="text-[#3c11a0] italic">04</span>
                 <span className="pl-6">
                   focus ={" "}
-                  <span className="text-[#8847fd]">"Performance, UX & Security"</span>;
+                  <span className="text-[#8847fd]">{`"Performance, UX & Security"`}</span>;
                 </span>
               </p>
               <p className="flex gap-4">
                 <span className="text-[#3c11a0] italic">05</span>
                 <span className="pl-6">
                   architecture ={" "}
-                  <span className="text-[#8847fd]">"Clean, Modular & Scalable"</span>;
+                  <span className="text-[#8847fd]">{`"Clean, Modular & Scalable"`}</span>;
                 </span>
               </p>
               <p className="flex gap-4">
                 <span className="text-[#3c11a0] italic">06</span>
                 <span className="pl-6">
                   security ={" "}
-                  <span className="text-[#8847fd]">"Role-Based Access, Multi Tenant"</span>;
+                  <span className="text-[#8847fd]">{`"Role-Based Access, Multi Tenant"`}</span>;
                 </span>
               </p>
               <p className="flex gap-4">
@@ -387,7 +387,7 @@ const AboutMe = () => {
                 <span className="text-[#3c11a0] italic">08</span>
                 <span className="pl-6">
                   status ={" "}
-                  <span className="text-[#8847fd]">"Production Ready"</span>;
+                  <span className="text-[#8847fd]">{`"Production Ready"`}</span>;
                 </span>
               </p>
               <p className="flex gap-4">
@@ -411,7 +411,7 @@ const AboutMe = () => {
               boxShadow: "0 0 40px rgba(59, 130, 246, 0.3)",
             }}
             whileTap={{ scale: 0.95 }}
-            className="px-12 py-5 bg-white text-[#3c11a0] font-black uppercase tracking-[0.4em] text-xs rounded-full relative z-10 transition-shadow overflow-hidden group"
+            className="px-12 py-5 bg-white text-[#8847fd] hover:text-white font-black uppercase tracking-[0.4em] text-xs rounded-full relative z-10 transition-shadow overflow-hidden group"
           >
             <span className="relative z-10">Initialize Port</span>
             <div className="absolute inset-0 bg-[#8847fd] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />

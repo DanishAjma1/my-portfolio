@@ -13,6 +13,7 @@ import {
   Server,
   MousePointer2,
   X,
+  Eye,
 } from "lucide-react";
 
 export default function Hero() {
@@ -80,7 +81,7 @@ export default function Hero() {
           >
             <button
               onClick={handleScrollToProjects}
-              className="w-full sm:w-auto group relative flex items-center justify-center gap-3 rounded-2xl bg-[#3c11a0] md:text-base text-sm md:px-8 px-6 py-2 font-bold overflow-hidden hover:bg-[#5122be] active:scale-95 transition-colors duration-300 hover:cursor-pointer"
+              className="w-full sm:w-auto group relative flex items-center justify-center gap-3 rounded-2xl bg-[#3b0b94] md:text-base text-sm md:px-8 px-6 py-2 font-bold overflow-hidden hover:bg-[#5122be] active:scale-95 transition-colors duration-300 hover:cursor-pointer"
             >
               View Work
               <ArrowRight
@@ -93,7 +94,7 @@ export default function Hero() {
               onClick={() => setIsResumeOpen(true)}
               className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl border border-[#120945] bg-[#120945]/50 backdrop-blur-xl md:text-base text-sm md:px-8 px-6 py-2 font-bold hover:bg-[#120945] hover:cursor-pointer transition-colors duration-300 active:scale-95"
             >
-              <Download size={18} />
+              <Eye size={18} />
               Resume
             </button>
           </motion.div>
@@ -107,7 +108,7 @@ export default function Hero() {
             {[
               {
                 icon: <CheckCircle2 size={14} />,
-                text: "VERIFIED ARCHITECT",
+                text: "SCALABLE ARCHITECT",
                 color: "text-[#8847fd]",
               },
               {
@@ -244,16 +245,16 @@ export default function Hero() {
               exit={{ scale: 0.9, opacity: 0 }}
               className="relative w-full max-w-5xl h-[85vh] sm:h-[80vh] bg-slate-900 rounded-2xl md:rounded-3xl overflow-hidden border border-[#120945] shadow-2xl"
             >
-              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-110">
+              <div className="absolute top-4 right-3 sm:top-10 sm:right-6 z-110">
                 <button
                   onClick={() => setIsResumeOpen(false)}
-                  className="p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors backdrop-blur-md"
+                  className="p-2 bg-black hover:bg-white/20 rounded-full transition-colors backdrop-blur-md hover:cursor-pointer"
                 >
-                  <X size={20} className="text-white" />
+                  <X size={20} className="text-[#8847fd]" />
                 </button>
               </div>
               <iframe
-                src="/umar-nadeem-cv.pdf"
+                src="/Danish_Ajmal_Resume_Professional.pdf"
                 className="w-full h-full border-none"
                 title="Resume"
               />

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
-import { Linkedin, Instagram, Menu, X, Phone } from "lucide-react";
+import { Linkedin, Instagram, Menu, X, Phone, Mail } from "lucide-react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -74,7 +74,7 @@ const Navbar = () => {
     { name: "Experience", href: "#experience" },
   ];
 
-  const phoneNumber = "+923147865460";
+  const phoneNumber = "+923187325159";
 
   return (
     <nav
@@ -124,28 +124,36 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="flex items-center gap-4 relative z-[110]">
-          <div className="hidden md:flex items-center gap-4 border-r border-white/10 pr-4">
+        <div className="flex items-center gap-4 relative z-110">
+          <div className="hidden md:flex items-center gap-4 border-white/10 pr-4">
             <a
               href={`tel:${phoneNumber}`}
-              className="flex items-center gap-2 text-slate-400 hover:text-blue-400 transition-colors text-[10px] font-bold uppercase tracking-widest"
+              className="flex items-center gap-2 text-slate-400 hover:text-[#8847fd] transition-colors text-[10px] font-bold uppercase tracking-widest"
             >
               <Phone size={14} />
-              Let's Talk
+              {`Let's Talk`}
             </a>
             <a
-              href="http://linkedin.com/in/umar-nadeem-118181398"
+              href="https://www.linkedin.com/in/danish-ajmal-b6a61b2a3/"
               target="_blank"
-              className="text-slate-400 hover:text-[#000022] transition-colors"
+              className="text-blue-500 transition-colors"
             >
               <Linkedin size={18} />
             </a>
             <a
-              href="https://www.instagram.com/umar_n24?igsh=cWdicHV6ZmUxeDNi&utm_source=qr"
+              href="mailto:danishajmalbutt@gmail.com"
               target="_blank"
-              className="text-slate-400 hover:text-pink-500 transition-colors"
+              className="text-slate-400 hover:text-pink-400 transition-colors"
             >
-              <Instagram size={18} />
+              <Mail size={18} />
+            </a>
+
+            <a
+              href="https://wa.me/923187325159"
+              target="_blank"
+              className="text-slate-400 hover:text-purple-400 transition-colors"
+            >
+              <img src="/whatsappLogo.png" alt="logo" className="h-5 w-fit" />
             </a>
           </div>
 
@@ -164,7 +172,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-[100] h-screen w-full bg-[#120945] p-8 md:hidden flex flex-col justify-center items-center"
+            className="fixed inset-0 z-100 h-screen w-full bg-[#120945] p-8 md:hidden flex flex-col justify-center items-center"
           >
             <div className="flex flex-col items-center gap-6 w-full max-w-xs">
               {navLinks.map((link, i) => (
@@ -196,18 +204,18 @@ const Navbar = () => {
 
               <div className="flex gap-6 mt-6">
                 <a
-                  href="http://linkedin.com/in/umar-nadeem-118181398"
+                  href="https://www.linkedin.com/in/danish-ajmal-b6a61b2a3/"
                   target="_blank"
                   className="p-3 rounded-full bg-slate-900 border border-white/5 text-[#000022]"
                 >
                   <Linkedin size={24} />
                 </a>
                 <a
-                  href="https://www.instagram.com/umar_n24?igsh=cWdicHV6ZmUxeDNi&utm_source=qr"
+                  href="mailto:danishajmalbutt@gmail.com"
                   target="_blank"
-                  className="p-3 rounded-full bg-slate-900 border border-white/5 text-pink-500"
+                  className="p-3 rounded-full bg-slate-900 border border-white/5 text-purple-400"
                 >
-                  <Instagram size={24} />
+                  <Mail size={24} />
                 </a>
               </div>
             </div>

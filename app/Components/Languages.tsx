@@ -67,7 +67,7 @@ export default function TechNeuralNetwork() {
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl md:text-6xl font-bold text-white tracking-tight"
         >
-          Technical <span className="text-blue-600">Ecosystem</span>
+          Technical <span className="bg-linear-to-r from-[#3c11a0] via-[#8847fd] to-white bg-clip-text text-transparent">Ecosystem</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -128,7 +128,7 @@ export default function TechNeuralNetwork() {
                   ? `0 0 60px ${skills[hoveredIndex].color}33`
                   : "0 0 20px rgba(37,99,235,0.1)",
             }}
-            className="w-28 h-28 md:w-36 md:h-36 bg-slate-950 border-2 border-blue-500/20 rounded-full flex flex-col items-center justify-center backdrop-blur-3xl relative"
+            className="w-28 h-28 md:w-36 md:h-36 bg-slate-900/40 border border-[#8847fd]/20 rounded-full flex flex-col items-center justify-center backdrop-blur-3xl relative"
           >
             <div className="relative z-50">
               <AnimatePresence mode="wait">

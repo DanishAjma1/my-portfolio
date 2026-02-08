@@ -50,7 +50,7 @@ function Particles() {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute w-1 h-1 bg-blue-400 rounded-full"
+          className="absolute w-1 h-1 bg-[#8847fd] rounded-full"
           style={{
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
@@ -74,34 +74,23 @@ function Card({ item, index }: any) {
         isLeft ? "md:pr-16 md:ml-0 md:mr-auto" : "md:pl-16 md:mr-0 md:ml-auto"
       }`}
     >
-      <motion.div
-        animate={{
-          boxShadow: [
-            "0 0 10px #3b82f6",
-            "0 0 25px #3b82f6",
-            "0 0 10px #3b82f6",
-          ],
-        }}
-        transition={{ repeat: Infinity, duration: 3 }}
-        className="hidden md:block absolute top-10 w-4 h-4 rounded-full bg-blue-500 z-20 left-1/2 -translate-x-1/2 border-4 border-slate-950"
-      />
 
       <motion.div
         whileHover={{ y: -5, scale: 1.02 }}
-        className="relative backdrop-blur-3xl bg-slate-900/40 border border-blue-500/20 rounded-[2rem] p-8 shadow-2xl hover:border-blue-500/50 transition-all duration-500 group overflow-hidden"
+        className="relative backdrop-blur-3xl bg-slate-900/40 border border-[#8847fd]/20 rounded-[2rem] p-8 shadow-2xl hover:border-[#8847fd]/50 transition-all duration-500 group overflow-hidden"
       >
         <div className="absolute -right-10 -top-10 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl group-hover:bg-blue-600/20 transition-all" />
 
         <div className="flex justify-between items-start gap-4 mb-4">
           <div className="flex-1">
-            <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+            <h3 className="text-2xl font-bold text-white group-hover:text-[#8847fd] transition-colors">
               {item.role}
             </h3>
-            <p className="text-blue-500 font-mono text-sm font-semibold">
+            <p className="text-[#8847fd] font-mono text-sm font-semibold">
               {item.company}
             </p>
           </div>
-          <span className="whitespace-nowrap shrink-0 text-[10px] font-bold py-1 px-3 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">
+          <span className="whitespace-nowrap shrink-0 text-[10px] font-bold py-1 px-3 bg-[#8847fd]/10 text-[#8847fd] rounded-full border border-[#8847fd]/20">
             {item.time}
           </span>
         </div>
@@ -114,7 +103,7 @@ function Card({ item, index }: any) {
           {item.skills.map((s: string) => (
             <span
               key={s}
-              className="px-3 py-1 text-[10px] font-bold rounded-lg border border-slate-800 bg-slate-950 text-slate-300 group-hover:border-blue-500/30 group-hover:text-blue-300 transition-all"
+              className="px-3 py-1 text-[10px] font-bold rounded-lg border border-slate-800 bg-slate-950 text-slate-300 group-hover:border-[#8847fd]/30 group-hover:text-blue-300 transition-all"
             >
               {s}
             </span>
@@ -144,10 +133,10 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center mb-8"
         >
-          <h2 className="text-blue-500 font-mono text-sm font-black tracking-[0.5em] uppercase mb-2">
+          <h2 className="text-[#8847fd] font-mono text-sm font-black tracking-[0.5em] uppercase mb-2">
             Timeline
           </h2>
-          <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-blue-500 to-transparent mb-12" />
+          <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-[#8847fd] to-transparent mb-12" />
         </motion.div>
 
         <motion.div
@@ -155,15 +144,18 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-center mb-32"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-[0.3em] mb-4 uppercase">
-            <Zap size={14} className="fill-blue-400" /> Professional
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#120945]/20 border border-[#120945] text-xs font-bold tracking-[0.3em] mb-4 uppercase">
+            <Zap size={14} className="fill-[#8847fd]" /> Professional
           </div>
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter">
-            MY <span className="text-blue-600">EXPERIENCE</span>
+            MY{" "}
+            <span className="bg-linear-to-r from-[#3c11a0] via-[#8847fd] to-white bg-clip-text text-transparent">
+              EXPERIENCE
+            </span>
           </h2>
         </motion.div>
 
-        <div className="hidden md:block absolute left-1/2 top-[350px] bottom-0 w-[1px] bg-gradient-to-b from-blue-500 via-blue-900/50 to-transparent shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
+        <div className="hidden md:block absolute left-1/2 top-[350px] bottom-0 w-[1px] bg-gradient-to-b from-[#8847fd] via-blue-900/50 to-transparent shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
 
         <div className="flex flex-col gap-20 relative">
           {data.map((item, i) => (
