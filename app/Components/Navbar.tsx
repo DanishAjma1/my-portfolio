@@ -69,23 +69,23 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
   ];
 
   const phoneNumber = "+923187325159";
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-100 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-100 transition-all duration-500 z-50 ${
         scrolled || isOpen
           ? "py-3 bg-[#120945] backdrop-blur-xl border-b border-[#000022]/10"
           : "py-5 bg-transparent"
       }`}
     >
       <motion.div
-        className="absolute top-0 left-0 right-0 h-0.5 bg-lime-800 origin-left z-50"
+        className="absolute top-0 left-0 right-0 h-0.5 bg-[#7e40e2] origin-left"
         style={{ scaleX }}
       />
 

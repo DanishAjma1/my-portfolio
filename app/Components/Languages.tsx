@@ -7,8 +7,6 @@ import {
   Server,
   LayoutDashboard,
   Globe2,
-  Zap,
-  Box,
   CreditCard,
   Infinity,
   GitBranch,
@@ -16,7 +14,6 @@ import {
   Table,
   FileJson,
   Wind,
-  Coffee,
   Terminal,
 } from "lucide-react";
 
@@ -33,12 +30,10 @@ const skillsRaw: Skill[] = [
   { name: "React", icon: <LayoutDashboard />, level: 95, color: "#61DAFB" },
   { name: "Next.js", icon: <Globe2 />, level: 92, color: "#ffffff" },
   { name: "Node.js", icon: <Server />, level: 93, color: "#339933" },
-  { name: "JavaScript", icon: <Terminal />, level: 96, color: "#F7DF1E" },
-  { name: "Express", icon: <FileJson />, level: 80, color: "#eeeeee" },
+  { name: "JavaScript", icon: "Js", level: 96, color: "#F7DF1E" },
+  { name: "Express", icon: "ex", level: 80, color: "#eeeeee" },
   { name: "MongoDB", icon: <Database />, level: 85, color: "#47A248" },
   { name: "MySQL", icon: <Table />, level: 82, color: "#00758F" },
-  { name: "PHP", icon: <Coffee />, level: 75, color: "#777BB4" },
-  { name: "Three.js", icon: <Box />, level: 78, color: "#fcca03" },
   { name: "Stripe", icon: <CreditCard />, level: 88, color: "#635bff" },
   { name: "Tailwind", icon: <Wind />, level: 98, color: "#06B6D4" },
   { name: "DevOps", icon: <Infinity />, level: 82, color: "#2563EB" },
@@ -67,7 +62,10 @@ export default function TechNeuralNetwork() {
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl md:text-6xl font-bold text-white tracking-tight"
         >
-          Technical <span className="bg-linear-to-r from-[#3c11a0] via-[#8847fd] to-white bg-clip-text text-transparent">Ecosystem</span>
+          Technical{" "}
+          <span className="bg-linear-to-r from-[#3c11a0] via-[#8847fd] to-white bg-clip-text text-transparent">
+            Ecosystem
+          </span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -141,13 +139,20 @@ export default function TechNeuralNetwork() {
                     transition={{ duration: 0.2 }}
                     style={{ color: skills[hoveredIndex].color }}
                   >
-                    {React.isValidElement(skills[hoveredIndex].icon) &&
+                    {hoveredIndex !== 4 && hoveredIndex !== 3 ? (
+                      React.isValidElement(skills[hoveredIndex].icon) &&
                       React.cloneElement(
                         skills[hoveredIndex].icon as React.ReactElement<{
                           size?: number;
                         }>,
                         { size: 40 },
-                      )}
+                      )
+                    ) : (
+                      <p className="text-[40px]">
+                        {" "}
+                        {skills[hoveredIndex].icon}
+                      </p>
+                    )}
                   </motion.div>
                 ) : (
                   <motion.div
@@ -202,11 +207,15 @@ export default function TechNeuralNetwork() {
                     color: hoveredIndex === i ? skill.color : "#475569",
                   }}
                 >
-                  {React.isValidElement(skill.icon) &&
+                  {i !== 4 && i !== 3 ? (
+                    React.isValidElement(skill.icon) &&
                     React.cloneElement(
                       skill.icon as React.ReactElement<{ size?: number }>,
                       { size: 28 },
-                    )}
+                    )
+                  ) : (
+                    <p className="text-[28px]">{skill.icon}</p>
+                  )}
                 </div>
               </motion.div>
 

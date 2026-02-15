@@ -2,36 +2,83 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Briefcase, Sparkles, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 
 const data = [
   {
-    role: "Full Stack Developer Internship",
-    company: "Techoo Software House",
-    time: "2024 - 2024",
-    desc: "Developed immersive UI systems with complex animations, focusing on performance optimization and responsive design systems.",
-    skills: ["React"],
+    role: "Full Stack Developer",
+    company: "ABCDMediaLTD (UK Remote)",
+    time: "Nov 2024 - Present",
+    desc: `Engineered a business-focused web platform for B2C Inc. using a modern full-stack JavaScript architecture built on
+Next.js, leveraging server-side rendering and React to deliver a responsive, high-performance frontend. Currently
+developing the backend within the Next.js ecosystem, implementing API-driven workflows and scalable server logic
+to support application growth.`,
+    skills: [
+      "Next.js",
+      "Tailwind",
+      "MongoDB",
+      "Node.js",
+      "Framer Motion",
+      "Hostinger",
+      "Vercel",
+      "GCP",
+    ],
   },
   {
     role: "MERN Stack Developer",
-    company: "AbccdMedia",
-    time: "2025 - 2026",
-    desc: "Engineered scalable full-stack systems, interactive dashboards, and high-performance API architectures using modern tech stacks.",
+    company: "Trust-bridge AI - Solutions",
+    time: "Aug 2025 - Nov 2025",
+    desc: `Architected a scalable MERN platform connecting entrepreneurs and investors using secure, modular components.
+Implemented role-based access control with JWT and granular permissions, along with a dedicated admin portal to
+monitor user activity and detect suspicious behavior. Integrated Agora WebRTC for real-time collaboration and chat,
+ensuring high performance, scalability, and a seamless user experience.`,
     skills: [
-      "React",
-      "Node.js",
+      "React.js",
+      "Express.js",
+      "Tailwind",
       "MongoDB",
-      "Tailwind CSS",
+      "Node.js",
       "Framer Motion",
-      "Next.js",
+      "Stripe",
+      "Railway",
+      "Vercel",
+    ],
+  },
+  {
+    role: "Full Stack Developer (Internship)",
+    company: "Developers Hub Corporation",
+    time: "Mar 2025 - Aug 2025",
+    desc: `Developed a scalable, maintainable, component-based Global-Mart platform using the MERN stack with modular
+microservices. Designed and deployed responsive interface with React.js & Tailwind CSS for seamless cross-platform
+user experience. Optimized Express.js APIs and containerized deployment using Docker and CI/CD pipelines for`,
+    skills: [
+      "React.js",
+      "Express.js",
+      "Tailwind",
+      "MongoDB",
+      "Node.js",
+      "Railway",
+      "Vercel",
     ],
   },
   {
     role: "Full Stack Developer",
-    company: "Techoo Software House",
-    time: "2025 - Present",
-    desc: "Maintained legacy PHP systems while migrating core services to modern Node/Express environments for better concurrency.",
-    skills: ["Mern", "Three.js", "Stripe", "Tailwind Css"],
+    company: "Apprenticeship | Gujrat",
+    time: "Nov 2024 - April 2025",
+    desc: `Built a full-stack finance management tool to track users’ daily transactions with secure JWT authentication.
+Developed Next.js frontend for responsive and interactive UI, integrating efficient backend APIs and MongoDB.
+Enabled data management, analytics, and personalized transaction insights for improved financial tracking.`,
+    skills: ["Next.js, Node.js", "MongoDB", "Tailwind CSS"],
+  },
+  {
+    role: "Web Developer",
+    company: "Apprenticeship | Gujrat",
+    time: "Jan 2024 - April 2024",
+    desc: `Developed a dynamic e-commerce website using HTML, CSS, and PHP, delivering a clean, responsive user interface
+and smooth browsing experience. Implemented core backend functionality for product listings, user authentication,
+and order handling, with structured database interactions to manage inventory and transactions efficiently.
+Designed the system to ensure reliability, maintainability, and straightforward administrative control.`,
+    skills: ["PHP", "Tailwind css", "HTML", "CSS"],
   },
 ];
 
@@ -74,7 +121,6 @@ function Card({ item, index }: any) {
         isLeft ? "md:pr-16 md:ml-0 md:mr-auto" : "md:pl-16 md:mr-0 md:ml-auto"
       }`}
     >
-
       <motion.div
         whileHover={{ y: -5, scale: 1.02 }}
         className="relative backdrop-blur-3xl bg-slate-900/40 border border-[#8847fd]/20 rounded-[2rem] p-8 shadow-2xl hover:border-[#8847fd]/50 transition-all duration-500 group overflow-hidden"
@@ -96,7 +142,7 @@ function Card({ item, index }: any) {
         </div>
 
         <p className="text-slate-400 text-sm leading-relaxed mb-6">
-          {item.desc}
+          {item.desc.slice(0, 150)}...
         </p>
 
         <div className="flex gap-2 flex-wrap">
